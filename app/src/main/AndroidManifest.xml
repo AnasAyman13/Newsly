@@ -18,7 +18,11 @@
             </intent-filter>
         </activity>
 
-        <activity android:name=".MainActivity" />
+        <activity
+            android:name=".OnboardingActivity"
+            android:exported="false"
+            android:noHistory="true" />
+
     </application>
 
 </manifest>

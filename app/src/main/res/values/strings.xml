@@ -1,3 +1,23 @@
-<resources>
-    <string name="app_name">Newsly</string>
-</resources>
+    <resources>
+        <string name="app_name">Newsly</string>
+
+        <!-- Onboarding Strings -->
+        <string name="onboarding_image">Onboarding illustration</string>
+
+        <!-- First Screen -->
+        <string name="onboarding_title_1">Stay Informed</string>
+        <string name="onboarding_description_1">Get the latest news from trusted sources around the world</string>
+
+        <!-- Second Screen -->
+        <string name="onboarding_title_2">Personalized Feed</string>
+        <string name="onboarding_description_2">Customize your news feed based on your interests and preferences</string>
+
+        <!-- Third Screen -->
+        <string name="onboarding_title_3">Breaking News</string>
+        <string name="onboarding_description_3">Receive instant notifications for breaking news and important updates</string>
+
+        <!-- Buttons -->
+        <string name="skip">Skip</string>
+        <string name="next">Next</string>
+        <string name="get_started">Get Started</string>
+    </resources>

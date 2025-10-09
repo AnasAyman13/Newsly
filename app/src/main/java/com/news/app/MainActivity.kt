@@ -1,5 +1,6 @@
-package  com.news.app
+package com.news.app
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
@@ -18,12 +19,24 @@ class MainActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+
+        // Check if onboarding is completed
+        val sharedPref = getSharedPreferences("NewslyPrefs", MODE_PRIVATE)
+        val onboardingCompleted = sharedPref.getBoolean("onboarding_completed", false)
+
+        if (!onboardingCompleted) {
+            // لو الـ onboarding مخلصش، افتحها
+            startActivity(Intent(this, OnboardingActivity::class.java))
+            finish()
+            return
+        }
+
+        // لو الـ onboarding خلص، كمل عادي
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
         loadNews()
 
         binding.swipeRefresh.setOnRefreshListener { loadNews() }
-
     }
 
     private fun loadNews() {
@@ -61,6 +74,4 @@ class MainActivity : AppCompatActivity() {
         val adapter = NewsAdapter(this, articles)
         binding.newsList.adapter = adapter
     }
-
-
 }
