@@ -38,9 +38,9 @@ class MainActivity : AppCompatActivity() {
             override fun onResponse(call: Call<News>, response: Response<News>) {
                 val articles = response.body()?.articles!!
 
-                articles.removeAll{
+                articles.removeAll {
                     it.title == "[Removed]"
-                    it.title=="[Stocks Rise as Government Shutdown Looms]"
+                    it.title == "[Stocks Rise as Government Shutdown Looms]"
                 }
 
                 //Log.d("trace", "Data: $articles")
@@ -50,7 +50,7 @@ class MainActivity : AppCompatActivity() {
             }
 
             override fun onFailure(call: Call<News>, t: Throwable) {
-               // Log.d("trace", "Error: ${t.message}")
+                // Log.d("trace", "Error: ${t.message}")
                 binding.progress.isVisible = false
                 binding.swipeRefresh.isRefreshing = false
             }
@@ -61,5 +61,6 @@ class MainActivity : AppCompatActivity() {
         val adapter = NewsAdapter(this, articles)
         binding.newsList.adapter = adapter
     }
+
 
 }
