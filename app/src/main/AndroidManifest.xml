@@ -3,11 +3,27 @@
     xmlns:tools="http://schemas.android.com/tools">
 
     <uses-permission android:name="android.permission.INTERNET" />
+
+  
+
+
     <application
+        android:allowBackup="true"
+        android:dataExtractionRules="@xml/data_extraction_rules"
+        android:fullBackupContent="@xml/backup_rules"
+
         android:icon="@mipmap/ic_launcher"
         android:roundIcon="@mipmap/ic_launcher_round"
+ 
         android:label="@string/app_name"
         android:theme="@style/Theme.NewsApp">
+
+        android:supportsRtl="true"
+        android:theme="@style/Theme.NewsApp"
+        android:usesCleartextTraffic="true">
+        <activity
+            android:name=".ArticleActivity"
+            android:exported="false" />
 
         <activity
             android:name=".SplashActivity"

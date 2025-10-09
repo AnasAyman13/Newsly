@@ -38,6 +38,7 @@ buildFeatures{
 }
 
 dependencies {
+    val nav_version = "2.3.5"
     implementation("androidx.swiperefreshlayout:swiperefreshlayout:1.2.0-alpha01")
     implementation("com.squareup.retrofit2:retrofit:3.0.0")
     implementation("com.squareup.retrofit2:converter-gson:3.0.0")
@@ -50,4 +51,11 @@ dependencies {
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
+    //BlurView
+    implementation("com.github.Dimezis:BlurView:version-2.0.3")
+    // navigation component
+        implementation ("androidx.navigation:navigation-fragment-ktx:$nav_version")
+    implementation( "androidx.navigation:navigation-ui-ktx:$nav_version")
+
+
 }

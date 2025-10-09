@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".HomeFragment"
+   >
+
+    <!-- TODO: Update blank fragment layout -->
+    <TextView
+        android:id="@+id/Random_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Random News"
+        android:layout_marginTop="18dp"
+
+        android:textSize="24sp"
+        android:textStyle="bold"
+        android:layout_marginStart="16dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        />
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/RandomNewsRacycler"
+        android:layout_width="wrap_content"
+        android:layout_height="90sp"
+        android:layout_margin="16dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/Random_tv"/>
+    <TextView
+        android:id="@+id/categories_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Caregories"
+        app:layout_constraintTop_toBottomOf="@id/RandomNewsRacycler"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        android:layout_marginTop="16dp"
+        app:layout_constraintStart_toStartOf="@id/RandomNewsRacycler"/>
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/categoriesRacycler"
+        android:layout_width="wrap_content"
+        android:layout_height="90sp"
+        android:layout_margin="16dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/categories_tv"/>
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
