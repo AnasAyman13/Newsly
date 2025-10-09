@@ -51,9 +51,9 @@ class MainActivity : AppCompatActivity() {
             override fun onResponse(call: Call<News>, response: Response<News>) {
                 val articles = response.body()?.articles!!
 
-                articles.removeAll{
+                articles.removeAll {
                     it.title == "[Removed]"
-                    it.title=="[Stocks Rise as Government Shutdown Looms]"
+                    it.title == "[Stocks Rise as Government Shutdown Looms]"
                 }
 
                 //Log.d("trace", "Data: $articles")
