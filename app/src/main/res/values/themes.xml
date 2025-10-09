@@ -1,5 +1,15 @@
 <resources xmlns:tools="http://schemas.android.com/tools">
 
+
+    <style name="Base.Theme.NewsApp" parent="Theme.Material3.DayNight.NoActionBar">
+        <!-- نخلي السبلـاش شفاف عشان يبان إن مفيش -->
+        <item name="android:windowSplashScreenAnimatedIcon" tools:targetApi="31">@null</item>
+        <item name="android:windowSplashScreenBackground" tools:targetApi="31">@android:color/transparent</item>
+        <item name="android:windowSplashScreenBrandingImage" tools:targetApi="31">@null</item>
+    </style>
+
+    <style name="Theme.NewsApp" parent="Base.Theme.NewsApp" />
+
     <!-- Theme الأساسي -->
     <style name="Theme.NewsApp" parent="Theme.Material3.DayNight.NoActionBar">
         <!-- اللون الأساسي -->
@@ -22,5 +32,6 @@
         <item name="navigationIconTint">#FFFFFF</item>
 
     </style>
+
 
 </resources>
