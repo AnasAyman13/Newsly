@@ -1,9 +1,26 @@
 <resources xmlns:tools="http://schemas.android.com/tools">
-    <!-- Base application theme. -->
-    <style name="Base.Theme.NewsApp" parent="Theme.Material3.DayNight.NoActionBar">
-        <!-- Customize your light theme here. -->
-        <!-- <item name="colorPrimary">@color/my_light_primary</item> -->
+
+    <!-- Theme الأساسي -->
+    <style name="Theme.NewsApp" parent="Theme.Material3.DayNight.NoActionBar">
+        <!-- اللون الأساسي -->
+        <item name="colorPrimary">@color/lavunder</item>
+        <!-- اللون المستخدم للنص والأيقونات فوق اللون الأساسي -->
+        <item name="colorOnPrimary">#FFFFFF</item>
+
+        <!-- لون الخلفية العام -->
+        <item name="android:colorBackground">#FFFFFF</item>
+        <item name="colorSurface">#FFFFFF</item>
+        <item name="colorOnSurface">#000000</item>
+
+        <!-- لون الأيقونات والنصوص في شريط الأدوات -->
+        <item name="toolbarStyle">@style/CustomToolbar</item>
     </style>
 
-    <style name="Theme.NewsApp" parent="Base.Theme.NewsApp" />
+    <!-- ستايل خاص بالـ Toolbar -->
+    <style name="CustomToolbar" parent="Widget.Material3.Toolbar">
+        <item name="titleTextColor">#FFFFFF</item>
+        <item name="navigationIconTint">#FFFFFF</item>
+
+    </style>
+
 </resources>
