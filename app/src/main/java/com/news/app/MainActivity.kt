@@ -3,8 +3,10 @@ package com.news.app
 import android.content.Intent
 import android.os.Bundle
 import android.view.Menu
+import android.view.WindowManager
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.content.ContextCompat
 import androidx.core.view.isVisible
 import androidx.navigation.findNavController
 import androidx.navigation.ui.AppBarConfiguration
@@ -23,7 +25,7 @@ class MainActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-
+        window.setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN)
         // Check onboarding
         val sharedPref = getSharedPreferences("NewslyPrefs", MODE_PRIVATE)
         val onboardingCompleted = sharedPref.getBoolean("onboarding_completed", false)
@@ -33,7 +35,6 @@ class MainActivity : AppCompatActivity() {
             finish()
             return
         }
-
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
@@ -47,6 +48,28 @@ class MainActivity : AppCompatActivity() {
         )
         NavigationUI.setupActionBarWithNavController(this, navController, appBarConfiguration)
         binding.btmNav.setupWithNavController(navController)
+        binding.homeImg.setOnClickListener {
+            it.animate().scaleX(1.2f).scaleY(1.2f).setDuration(200).withEndAction {
+                it.animate().scaleX(1f).scaleY(1f).duration = 200
+                // إعادة اللون الأصلي بعد الانتهاء من الأنيميشن
+                binding.homeImg.clearColorFilter()
+            }
+            // تغيير لون الصورة عند الضغط
+            binding.homeImg.setColorFilter(ContextCompat.getColor(this, R.color.Blue))
+            // الوظيفة عند الضغط علي زر ال home
+
+        }
+        binding.favoriteImage.setOnClickListener {
+            it.animate().scaleX(1.2f).scaleY(1.2f).setDuration(200).withEndAction {
+                it.animate().scaleX(1f).scaleY(1f).duration = 200
+                // إعادة اللون الأصلي بعد الانتهاء من الأنيميشن
+                binding.favoriteImage.clearColorFilter()
+            }
+            // تغيير لون الصورة عند الضغط
+            binding.favoriteImage.setColorFilter(ContextCompat.getColor(this, R.color.Blue))
+            // الوظيفة عند الضغط علي زر ال favorite
+
+        }
 
 
     }
@@ -61,4 +84,7 @@ class MainActivity : AppCompatActivity() {
         val navController = findNavController(R.id.host_fragment)
         return navController.navigateUp() || super.onSupportNavigateUp()
     }
+
+
+
 }
