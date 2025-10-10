@@ -3,6 +3,7 @@ package  com.news.app
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.core.view.isVisible
+import com.news.app.databinding.ActivityArticleBinding
 
 import com.news.app.databinding.ActivityMainBinding
 import retrofit2.Call
@@ -13,15 +14,15 @@ import retrofit2.converter.gson.GsonConverterFactory
 
 class ArticleActivity : AppCompatActivity() {
 
-/*    private lateinit var binding: ActivityMainBinding
+  private lateinit var binding: ActivityArticleBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        binding = ActivityMainBinding.inflate(layoutInflater)
+        binding = ActivityArticleBinding.inflate(layoutInflater)
         setContentView(binding.root)
         loadNews()
 
-      //  binding.swipeRefresh.setOnRefreshListener { loadNews() }
+       binding.swipeRefresh.setOnRefreshListener { loadNews() }
 
     }
 
@@ -59,6 +60,6 @@ class ArticleActivity : AppCompatActivity() {
     private fun showNews(articles: ArrayList<Article>) {
         val adapter = NewsAdapter(this, articles)
         binding.newsList.adapter = adapter
-    }*/
+    }
 
 }

@@ -1,8 +1,8 @@
 <resources xmlns:tools="http://schemas.android.com/tools">
 
-
+    <!-- Base Theme with splash handling -->
     <style name="Base.Theme.NewsApp" parent="Theme.Material3.DayNight.NoActionBar">
-        <!-- نخلي السبلـاش شفاف عشان يبان إن مفيش -->
+        <!-- Disable default Android 12+ splash -->
         <item name="android:windowSplashScreenAnimatedIcon" tools:targetApi="31">@null</item>
         <item name="android:windowSplashScreenBackground" tools:targetApi="31">@android:color/transparent</item>
         <item name="android:windowSplashScreenBrandingImage" tools:targetApi="31">@null</item>
@@ -10,28 +10,27 @@
 
     <style name="Theme.NewsApp" parent="Base.Theme.NewsApp" />
 
-    <!-- Theme الأساسي -->
-    <style name="Theme.NewsApp" parent="Theme.Material3.DayNight.NoActionBar">
-        <!-- اللون الأساسي -->
+    <!-- Main App Theme -->
+    <style name="Theme.Newsly" parent="Theme.Material3.DayNight.NoActionBar">
+        <!-- Primary branding colors -->
         <item name="colorPrimary">@color/lavunder</item>
-        <!-- اللون المستخدم للنص والأيقونات فوق اللون الأساسي -->
         <item name="colorOnPrimary">#FFFFFF</item>
+        <item name="colorPrimaryContainer">@color/lavunder</item>
+        <item name="colorSecondary">@color/lavunder</item>
 
-        <!-- لون الخلفية العام -->
+        <!-- Background / surfaces -->
         <item name="android:colorBackground">#FFFFFF</item>
         <item name="colorSurface">#FFFFFF</item>
         <item name="colorOnSurface">#000000</item>
 
-        <!-- لون الأيقونات والنصوص في شريط الأدوات -->
+        <!-- Apply custom toolbar style -->
         <item name="toolbarStyle">@style/CustomToolbar</item>
     </style>
 
-    <!-- ستايل خاص بالـ Toolbar -->
+    <!-- Toolbar styling -->
     <style name="CustomToolbar" parent="Widget.Material3.Toolbar">
         <item name="titleTextColor">#FFFFFF</item>
         <item name="navigationIconTint">#FFFFFF</item>
-
     </style>
-
 
 </resources>
