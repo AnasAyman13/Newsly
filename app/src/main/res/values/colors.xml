@@ -10,5 +10,9 @@
     <color name="lavunder">#8692f7</color>
     <color name="Blue"> #072265
     </color>
-
+    <color name="dark_blue">#1A2C42</color>
+    <color name="light_gray">#F5F5F5</color>
+    <color name="hint_gray">#BDBDBD</color>
+    <color name="facebook_blue">#3B5998</color>
+    <color name="google_red">#DB4437</color>
 </resources>
