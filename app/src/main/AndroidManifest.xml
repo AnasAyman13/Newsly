@@ -15,19 +15,7 @@
         android:supportsRtl="true"
         android:usesCleartextTraffic="true">
 
-        <activity
-            android:name=".ArticleActivity"
-            android:exported="false" />
-
-        <activity
-            android:name=".OnboardingActivity"
-            android:exported="false"
-            android:noHistory="true" />
-
-        <activity
-            android:name=".MainActivity"
-            android:exported="false" />
-
+        <!-- SplashActivity - LAUNCHER -->
         <activity
             android:name=".SplashActivity"
             android:exported="true">
@@ -36,6 +24,32 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
+        <!-- OnboardingActivity -->
+        <activity
+            android:name=".OnboardingActivity"
+            android:exported="false"
+            android:noHistory="true" />
+
+        <!-- Sign Up Activity -->
+        <activity
+            android:name=".Signup"
+            android:exported="false" />
+
+        <!-- Login Activity -->
+        <activity
+            android:name=".LoginActivity"
+            android:exported="false" />
+
+        <!-- Main Activity -->
+        <activity
+            android:name=".MainActivity"
+            android:exported="false"/>
+
+        <!-- Article Activity -->
+        <activity
+            android:name=".ArticleActivity"
+            android:exported="false" />
 
     </application>
 </manifest>
