@@ -1,6 +1,8 @@
 plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.kotlin.android)
+
+    id("com.google.gms.google-services")
 }
 
 android {
@@ -56,6 +58,10 @@ dependencies {
     // navigation component
         implementation ("androidx.navigation:navigation-fragment-ktx:$nav_version")
     implementation( "androidx.navigation:navigation-ui-ktx:$nav_version")
+    //Firebase
+    implementation(platform("com.google.firebase:firebase-bom:34.3.0"))
+    //Firebase auth
+    implementation("com.google.firebase:firebase-auth")
 
 
 }

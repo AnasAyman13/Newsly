@@ -3,6 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:tools="http://schemas.android.com/tools"
     android:fillViewport="true"
     android:background="#FFFFFF">
 
@@ -30,7 +31,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
-            android:text="Please enter log in details below"
+            android:text="Please enter Sign Up details below"
             android:textSize="14sp"
             android:textColor="#8E8E8E"
             app:layout_constraintTop_toBottomOf="@id/tvTitle"
@@ -135,7 +136,7 @@
             android:id="@+id/cbAgree"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginTop="16dp"
+            android:layout_marginTop="10dp"
             android:text=" I agree with Privacy and Policy"
             android:textSize="13sp"
             android:textColor="#2C2C2C"
@@ -251,6 +252,31 @@
             android:focusable="true"
             app:layout_constraintTop_toTopOf="@id/tvLoginPrompt"
             app:layout_constraintStart_toEndOf="@id/tvLoginPrompt"/>
+
+        <ProgressBar
+            android:id="@+id/loadingProgress"
+            style="?android:attr/progressBarStyleLarge"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:visibility="gone"
+            tools:visibility="visible"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent" />
+        <Button
+            android:id="@+id/btnCheckVerification"
+
+            android:backgroundTint="#30096F"
+            android:textColor="#FFFFFF"            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="I Verified My Email"
+            android:layout_marginTop="55dp"
+            android:visibility="gone"
+            app:layout_constraintTop_toBottomOf="@+id/loadingProgress"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            tools:visibility="visible"/>
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </ScrollView>

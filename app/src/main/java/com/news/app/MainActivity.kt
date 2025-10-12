@@ -5,17 +5,24 @@ import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
 import android.view.WindowManager
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
 import androidx.navigation.findNavController
 import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.NavigationUI
+import com.google.firebase.Firebase
+import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.auth.auth
 import com.news.app.databinding.ActivityMainBinding
+
+
 
 class MainActivity : AppCompatActivity() {
     private lateinit var binding: ActivityMainBinding
-
+    private lateinit var auth: FirebaseAuth
     override fun onCreate(savedInstanceState: Bundle?) {
+        auth= Firebase.auth
         super.onCreate(savedInstanceState)
         window.setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN)
 
@@ -77,10 +84,13 @@ class MainActivity : AppCompatActivity() {
                 return true
             }
             R.id.action_logout -> {
-                // تسجيل الخروج
-                val sharedPref = getSharedPreferences("NewslyPrefs", MODE_PRIVATE)
-                sharedPref.edit().putBoolean("onboarding_completed", false).apply()
-                startActivity(Intent(this, OnboardingActivity::class.java))
+
+                //val sharedPref = getSharedPreferences("NewslyPrefs", MODE_PRIVATE)
+               // sharedPref.edit().putBoolean("onboarding_completed", false).apply()
+                Toast.makeText(this, "${auth.currentUser?.email},have log out!", Toast.LENGTH_SHORT).show()
+                auth.signOut()
+                 startActivity(Intent(this, LoginActivity::class.java))
+               // startActivity(Intent(this, OnboardingActivity::class.java))
                 finish()
                 return true
             }

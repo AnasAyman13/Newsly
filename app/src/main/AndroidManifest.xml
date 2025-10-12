@@ -31,18 +31,18 @@
             android:name=".OnboardingActivity"
             android:exported="false"
             android:noHistory="true" />
-        <!-- Sign Up Activity -->
-        <!--
-        <activity
-            android:name=".Signup"
-            android:exported="false" />
-            -->
-     <!-- Login Activity -->
-        <!--
+        <!-- Login Activity -->
+
         <activity
             android:name=".LoginActivity"
             android:exported="false" />
-            -->
+        <!-- Sign Up Activity -->
+
+        <activity
+            android:name=".Signup"
+            android:exported="false" />
+
+
             <!-- Main Activity -->
 
         <activity
