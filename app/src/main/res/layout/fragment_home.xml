@@ -40,17 +40,117 @@
             android:textSize="22sp"
             android:textStyle="bold"
             android:layout_marginTop="16dp" />
-
-        <!-- Categories RecyclerView -->
-        <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/categoriesRacycler"
+        <GridLayout
+            android:layout_marginTop="64dp"
+            android:id="@+id/grid"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:nestedScrollingEnabled="false"
-            android:paddingTop="8dp"
-            android:paddingBottom="8dp"
-            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-            tools:listitem="@layout/item_category" />
+            android:columnCount="3"
+            android:alignmentMode="alignMargins"
+            android:useDefaultMargins="true"
+            app:layout_constraintTop_toBottomOf="@id/categories_tv"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            android:layout_marginHorizontal="8dp">
+
+            <!-- Category Item Template -->
+            <LinearLayout
+                android:id="@+id/business_LL"
+                style="@style/CategoryItem"
+                android:layout_columnWeight="1">
+                <ImageView
+                    android:layout_width="48dp"
+                    android:layout_height="48dp"
+                    android:src="@drawable/buisness" />
+                <TextView
+                    android:text="Business"
+                    style="@style/CategoryText" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/enter_LL"
+                style="@style/CategoryItem"
+                android:layout_columnWeight="1">
+                <ImageView
+                    android:layout_width="48dp"
+                    android:layout_height="48dp"
+                    android:src="@drawable/enter" />
+                <TextView
+                    android:text="Entertainment"
+                    style="@style/CategoryText" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/health_LL"
+                style="@style/CategoryItem"
+                android:layout_columnWeight="1">
+                <ImageView
+                    android:layout_width="48dp"
+                    android:layout_height="48dp"
+                    android:src="@drawable/health" />
+                <TextView
+                    android:text="Health"
+                    style="@style/CategoryText" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/science_LL"
+                style="@style/CategoryItemTop"
+                android:layout_columnWeight="1">
+                <ImageView
+                    android:layout_width="48dp"
+                    android:layout_height="48dp"
+                    android:src="@drawable/science" />
+                <TextView
+                    android:text="Science"
+                    style="@style/CategoryText" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/sports_LL"
+                style="@style/CategoryItemTop"
+                android:layout_columnWeight="1">
+                <ImageView
+                    android:layout_width="48dp"
+                    android:layout_height="48dp"
+                    android:src="@drawable/sports" />
+                <TextView
+                    android:text="Sports"
+                    style="@style/CategoryText" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/tech_LL"
+                style="@style/CategoryItemTop"
+                android:layout_columnWeight="1">
+                <ImageView
+                    android:layout_width="48dp"
+                    android:layout_height="48dp"
+                    android:src="@drawable/tech" />
+                <TextView
+                    android:text="Technology"
+                    style="@style/CategoryText" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/general_LL"
+                style="@style/CategoryItemTop"
+                android:layout_columnWeight="1"
+                android:layout_column="1">
+                <ImageView
+                    android:layout_width="48dp"
+                    android:layout_height="48dp"
+                    android:src="@drawable/general" />
+                <TextView
+                    android:text="General"
+                    style="@style/CategoryText"
+                    android:textStyle="bold" />
+            </LinearLayout>
+
+
+        </GridLayout>
+
 
     </LinearLayout>
 </androidx.core.widget.NestedScrollView>

@@ -5,6 +5,7 @@ import android.content.Intent
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.ViewGroup
+import android.widget.Toast
 
 import androidx.core.app.ShareCompat
 import androidx.core.net.toUri
@@ -55,6 +56,18 @@ class NewsAdapter(val a: Activity, val articles: ArrayList<Article>) :
                 .setText(url)
                 .startChooser()
 
+        }
+        var isFavourite = false
+        holder.binding.favouritesFab.setOnClickListener {
+            isFavourite = !isFavourite
+            if (isFavourite) {
+                holder.binding.favouritesFab.setImageResource(R.drawable.fav_heart)
+                Toast.makeText(holder.itemView.context, "Added to favourites!", Toast.LENGTH_SHORT).show()
+            }
+            else {
+                holder.binding.favouritesFab.setImageResource(R.drawable.un_fav_heart)
+                Toast.makeText(holder.itemView.context, "Removed from favourites!", Toast.LENGTH_SHORT).show()
+            }
         }
     }
 
