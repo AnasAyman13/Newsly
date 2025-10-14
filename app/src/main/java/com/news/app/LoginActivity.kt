@@ -95,16 +95,15 @@ binding.tvSignUp.setOnClickListener {
 //one time login logic check if the session still in firebase (user->not null)
     override fun onStart() {
         super.onStart()
-
         val pref=getSharedPreferences("NewslyPrefs", Context.MODE_PRIVATE)
-        val remember=pref.getBoolean("remember",false)
+        val remember=pref.getBoolean("remember",binding.cbRememberMe.isChecked)
         val currentUser=auth.currentUser
         if(remember&&currentUser!=null){
             binding.loginContainer.isVisible=false
             binding.loadingProgress.isVisible = true
             currentUser.reload()?.addOnCompleteListener {
                 task->
-                if(task.isSuccessful&&currentUser!=null){
+                if(task.isSuccessful&&currentUser.isEmailVerified){
                     startActivity(Intent(this, MainActivity::class.java))
                     finish()
                 }else{

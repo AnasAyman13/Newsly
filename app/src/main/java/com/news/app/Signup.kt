@@ -143,6 +143,8 @@ class Signup : AppCompatActivity() {
                     Toast.makeText(this, "check ur email", Toast.LENGTH_SHORT).show()
                     binding.loadingProgress.isVisible = false
                     binding.btnCheckVerification.isVisible = true
+                    binding.tvLogin.isEnabled=false
+                    binding.btnSignUp.isEnabled=false
                 }
             }
     }
