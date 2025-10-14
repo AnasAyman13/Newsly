@@ -1,6 +1,8 @@
+import com.news.app.Article
+
 data class User(
     val ID: String = "",
     val Email: String = "",
     val Password: String = "",
-    val favArticleIds: ArrayList<String> = arrayListOf()
+    val favArticles: ArrayList<Article> = arrayListOf()
 )
