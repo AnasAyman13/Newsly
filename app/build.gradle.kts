@@ -40,6 +40,7 @@ buildFeatures{
 }
 
 dependencies {
+    implementation(libs.androidx.recyclerview)
     val nav_version = "2.3.5"
     implementation("androidx.swiperefreshlayout:swiperefreshlayout:1.2.0-alpha01")
     implementation("com.squareup.retrofit2:retrofit:3.0.0")
@@ -64,6 +65,8 @@ dependencies {
     implementation("com.google.firebase:firebase-auth")
     //firbase fireStore
     implementation("com.google.firebase:firebase-firestore")
+
+
 
 
 }
