@@ -18,7 +18,7 @@ import com.google.firebase.auth.auth
 import com.google.firebase.firestore.firestore
 import com.news.app.databinding.ArticleListItemBinding
 
-class NewsAdapter(val a: Activity, val articles: ArrayList<Article>) :
+class NewsAdapter(val a: Activity, val articles: ArrayList<Article> , val isFavoritesPage: Boolean = false) :
     RecyclerView.Adapter<NewsAdapter.NewsViewHolder>() {
 
     class NewsViewHolder(val binding: ArticleListItemBinding) : RecyclerView.ViewHolder(binding.root)
@@ -61,26 +61,59 @@ class NewsAdapter(val a: Activity, val articles: ArrayList<Article>) :
                 .startChooser()
 
         }
-        var fav = false
+        if (isFavoritesPage) {
+            holder.binding.favouritesFab.setImageResource(R.drawable.fav_heart)
+        }
+
         holder.binding.favouritesFab.setOnClickListener {
-            var auth = Firebase.auth
-            var user = auth.currentUser
-            fav = !fav
+            val auth = Firebase.auth
+            val user = auth.currentUser
             if (user == null) {
                 Log.d("trace user", "user not in session")
                 return@setOnClickListener
             }
+
             val pos = holder.bindingAdapterPosition
             if (pos == RecyclerView.NO_POSITION) return@setOnClickListener
-            val selectedArticle = articles[position]
-            val userRef = Firebase.firestore.collection("Users")
-                .document(user.uid)
+            val selectedArticle = articles[pos]
+            val userRef = Firebase.firestore.collection("Users").document(user.uid)
+
+            val currentFavState = holder.binding.favouritesFab.tag as? Boolean ?: false
+            val newFavState = !currentFavState
+            holder.binding.favouritesFab.tag = newFavState
+
             val articleMap = mapOf(
                 "title" to selectedArticle.title,
                 "url" to selectedArticle.url,
                 "urlToImage" to selectedArticle.urlToImage
             )
-            if (fav == true) {
+            if (isFavoritesPage) {
+                userRef.update(
+                    "favArticles",
+                    com.google.firebase.firestore.FieldValue.arrayRemove(articleMap)
+                )
+                    .addOnSuccessListener {
+                        Toast.makeText(
+                            holder.itemView.context,
+                            "Removed from favourites!",
+                            Toast.LENGTH_SHORT
+                        ).show()
+
+                        articles.removeAt(pos)
+                        notifyItemRemoved(pos)
+                        notifyItemRangeChanged(pos, articles.size)
+                    }
+                    .addOnFailureListener {
+                        Toast.makeText(
+                            holder.itemView.context,
+                            "Failed to remove. Try again!",
+                            Toast.LENGTH_SHORT
+                        ).show()
+                    }
+                return@setOnClickListener
+            }
+
+            if (newFavState) {
                 userRef.update(
                     "favArticles",
                     com.google.firebase.firestore.FieldValue.arrayUnion(articleMap)
@@ -94,7 +127,6 @@ class NewsAdapter(val a: Activity, val articles: ArrayList<Article>) :
                         ).show()
                     }
                     .addOnFailureListener {
-                        // If favArticles doesn't exist yet, create it
                         userRef.set(mapOf("favArticles" to listOf(articleMap)))
                             .addOnSuccessListener {
                                 holder.binding.favouritesFab.setImageResource(R.drawable.fav_heart)
@@ -106,7 +138,6 @@ class NewsAdapter(val a: Activity, val articles: ArrayList<Article>) :
                             }
                     }
             } else {
-                // Remove from favourites
                 userRef.update(
                     "favArticles",
                     com.google.firebase.firestore.FieldValue.arrayRemove(articleMap)
@@ -120,8 +151,11 @@ class NewsAdapter(val a: Activity, val articles: ArrayList<Article>) :
                         ).show()
                     }
             }
+
         }
+
     }
+
 
     override fun getItemCount() = articles.size
 

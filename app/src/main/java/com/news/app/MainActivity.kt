@@ -61,7 +61,7 @@ class MainActivity : AppCompatActivity() {
             animateIcon(binding.favoriteImage)
             binding.favoriteImage.setColorFilter(ContextCompat.getColor(this, R.color.Blue))
             binding.homeImg.clearColorFilter()
-            navController.navigate(R.id.favoritesFragment)
+            navController.navigate(R.id.favouriteFragment)
         }
     }
 
