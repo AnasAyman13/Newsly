@@ -28,7 +28,7 @@ class ThirdOnboardingFragment : Fragment() {
         val sharedPref = requireActivity().getSharedPreferences("NewslyPrefs", 0)
         sharedPref.edit().putBoolean("onboarding_completed", true).apply()
 
-        val intent = Intent(requireActivity(), MainActivity::class.java)
+        val intent = Intent(requireActivity(), Signup::class.java)
         intent.flags = Intent.FLAG_ACTIVITY_CLEAR_TOP or Intent.FLAG_ACTIVITY_NEW_TASK
         startActivity(intent)
         requireActivity().finish()

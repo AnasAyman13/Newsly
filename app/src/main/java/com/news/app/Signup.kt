@@ -43,17 +43,10 @@ class Signup : AppCompatActivity() {
             val email=binding.etEmail.text.toString()
             val pass=binding.etPassword.text.toString()
             val confPass=binding.etConfirmPassword.text.toString()
-            val checkPolicy=binding.cbAgree
             if (email.isBlank() || pass.isBlank() || confPass.isBlank()) {
                 Toast.makeText(
                     this,
                     "Missing fields, plz fill all the Required fields!",
-                    Toast.LENGTH_SHORT
-                ).show()
-            } else if (!checkPolicy.isChecked) {
-                Toast.makeText(
-                    this,
-                    "Make sure you have agreed for the polices and checked it!",
                     Toast.LENGTH_SHORT
                 ).show()
             } else if (pass != confPass) {

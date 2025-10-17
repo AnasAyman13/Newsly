@@ -1,84 +1,113 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
-
+    android:fitsSystemWindows="false"
     tools:context=".SettingsActivity">
 
-    <ImageView
-        android:id="@+id/back_btn"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="12dp"
-        android:layout_marginTop="24dp"
-        android:src="@drawable/back_icon" />
+    <!-- Full-screen background image (covers entire screen) -->
+<ImageView
+android:id="@+id/bg_image"
+android:layout_width="0dp"
+android:layout_height="950dp"
+android:src="@drawable/news"
+android:alpha="0.4"
+android:scaleType="centerCrop"
+    app:layout_constraintTop_toTopOf="parent"
+    app:layout_constraintBottom_toBottomOf="parent"
+    app:layout_constraintStart_toStartOf="parent"
+    app:layout_constraintEnd_toEndOf="parent" />
 
+    <!-- Back Button -->
+<ImageView
+android:id="@+id/back_btn"
+android:layout_width="wrap_content"
+android:layout_height="wrap_content"
+android:layout_marginStart="12dp"
+android:layout_marginTop="24dp"
+android:src="@drawable/back_icon"
+android:clickable="true"
+android:focusable="true"
+app:layout_constraintTop_toTopOf="parent"
+app:layout_constraintStart_toStartOf="parent" />
 
-    <TextView
-        android:id="@+id/settings_text"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:layout_marginTop="32dp"
-        android:text="Settings"
-        android:textColor="@color/black"
-        android:textSize="28dp"
-        android:textStyle="bold" />
+    <!-- Settings Title -->
+<TextView
+android:id="@+id/settings_text"
+android:layout_width="wrap_content"
+android:layout_height="wrap_content"
+android:layout_marginTop="32dp"
+android:text="Settings"
+android:textColor="@color/black"
+android:textSize="28dp"
+android:textStyle="bold"
+app:layout_constraintTop_toBottomOf="@id/back_btn"
+app:layout_constraintStart_toStartOf="parent"
+app:layout_constraintEnd_toEndOf="parent" />
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="18dp"
-        android:layout_marginTop="48dp"
-        android:text="Select a country for news:"
-        android:textSize="16dp" />
+    <!-- Country Selection Label (before RadioGroup) -->
+<TextView
+android:id="@+id/country_label"
+android:layout_width="wrap_content"
+android:layout_height="wrap_content"
+android:layout_marginStart="18dp"
+android:layout_marginTop="48dp"
+android:text="Select a country for news:"
+android:textSize="16dp"
+app:layout_constraintTop_toBottomOf="@id/settings_text"
+app:layout_constraintStart_toStartOf="parent" />
 
-    <RadioGroup
-        android:id="@+id/group"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="18dp">
+    <!-- RadioGroup for Countries (after label) -->
+<RadioGroup
+android:id="@+id/group"
+android:layout_width="wrap_content"
+android:layout_height="wrap_content"
+android:layout_marginStart="18dp"
+android:layout_marginTop="24dp"
+app:layout_constraintTop_toBottomOf="@id/country_label"
+app:layout_constraintStart_toStartOf="parent">
 
-        <RadioButton
-            android:id="@+id/us_btn"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:checked="true"
-            android:drawableStart="@drawable/us_flag"
-            android:text="United States"
-            android:textSize="18dp" />
+<RadioButton
+    android:id="@+id/us_btn"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:checked="true"
+    android:drawableStart="@drawable/us_flag"
+    android:text="United States"
+    android:textSize="18dp" />
 
-        <RadioButton
-            android:id="@+id/gr_btn"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:drawableStart="@drawable/de_flag"
-            android:text="Germany"
-            android:textSize="18dp" />
+<RadioButton
+    android:id="@+id/gr_btn"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:drawableStart="@drawable/de_flag"
+    android:text="Germany"
+    android:textSize="18dp" />
 
-        <RadioButton
-            android:id="@+id/uk_btn"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:drawableStart="@drawable/uk_flag"
-            android:text="United Kingdom"
-            android:textSize="18dp" />
+<RadioButton
+    android:id="@+id/uk_btn"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:drawableStart="@drawable/uk_flag"
+    android:text="United Kingdom"
+    android:textSize="18dp" />
 
+</RadioGroup>
 
-    </RadioGroup>
+    <!-- Save Button (after RadioGroup) -->
+<Button
+android:id="@+id/save_btn"
+android:layout_width="wrap_content"
+android:layout_height="wrap_content"
+android:layout_marginTop="64dp"
+android:text="Save Changes"
+android:textSize="18dp"
+app:layout_constraintTop_toBottomOf="@id/group"
+app:layout_constraintStart_toStartOf="parent"
+app:layout_constraintEnd_toEndOf="parent" />
 
-    <Button
-        android:id="@+id/save_btn"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center_horizontal"
-        android:layout_marginTop="64dp"
-        android:text="Save Changes"
-        android:textSize="18dp" />
-
-
-</LinearLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,10 +1,24 @@
 <?xml version="1.0" encoding="utf-8"?>
 <shape xmlns:android="http://schemas.android.com/apk/res/android"
     android:shape="rectangle">
+
+    <!-- Border stroke (add this for outline) -->
+    <stroke
+        android:width="2dp"
+        android:color="#000000" />
+
+    <!-- Your original gradient fill -->
     <gradient
         android:type="linear"
         android:angle="135"
         android:startColor="#0A1F44"
         android:centerColor="#1B3A6B"
-        android:endColor="#2D5F9E"/>
+        android:endColor="#2D5F9E"
+        android:centerX="0.5"
+        android:centerY="0.5" />
+
+    <!-- Optional: Rounded corners for the shape (affects both fill and border) -->
+    <corners android:radius="8dp" />
+
 </shape>
+

@@ -127,7 +127,6 @@
             app:layout_constraintEnd_toEndOf="parent"/>
 
         <!-- Login Button -->
-        <!-- Login Button - استخدم TextView -->
         <TextView
             android:id="@+id/btnLogin"
             android:layout_width="0dp"
@@ -145,63 +144,6 @@
             app:layout_constraintTop_toBottomOf="@id/cbRememberMe"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"/>
-        <!-- Or Divider -->
-        <TextView
-            android:id="@+id/tvOr"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="24dp"
-            android:text="Or"
-            android:textSize="14sp"
-            android:textColor="#8E8E8E"
-            app:layout_constraintTop_toBottomOf="@id/btnLogin"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"/>
-
-        <!-- Google Button -->
-        <TextView
-            android:id="@+id/btnGoogle"
-            android:layout_width="0dp"
-            android:layout_height="56dp"
-            android:layout_marginTop="24dp"
-            android:layout_marginEnd="8dp"
-            android:text="Google"
-            android:textColor="#2C2C2C"
-            android:textSize="15sp"
-            android:background="@drawable/bg_button_social"
-            android:gravity="center"
-            android:drawableStart="@drawable/ic_google"
-            android:drawablePadding="8dp"
-            android:paddingStart="20dp"
-            android:paddingEnd="20dp"
-            android:clickable="true"
-            android:focusable="true"
-            app:layout_constraintTop_toBottomOf="@id/tvOr"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toStartOf="@id/btnFacebook"/>
-
-
-
-        <!-- Facebook Button -->
-        <TextView
-            android:id="@+id/btnFacebook"
-            android:layout_width="0dp"
-            android:layout_height="56dp"
-            android:layout_marginStart="8dp"
-            android:text="Facebook"
-            android:textColor="#2C2C2C"
-            android:textSize="15sp"
-            android:background="@drawable/bg_button_social"
-            android:gravity="center"
-            android:drawableStart="@drawable/ic_facebook"
-            android:drawablePadding="8dp"
-            android:paddingStart="16dp"
-            android:paddingEnd="16dp"
-            android:clickable="true"
-            android:focusable="true"
-            app:layout_constraintTop_toTopOf="@id/btnGoogle"
-            app:layout_constraintStart_toEndOf="@id/btnGoogle"
-            app:layout_constraintEnd_toEndOf="parent"/>
 
         <!-- Sign Up Link -->
         <TextView
@@ -213,13 +155,11 @@
             android:layout_marginEnd="40dp"
             android:textSize="14sp"
             android:textColor="#8E8E8E"
-            app:layout_constraintTop_toBottomOf="@id/btnGoogle"
+            app:layout_constraintTop_toBottomOf="@id/btnLogin"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            android:text="Don't have an account? ">
-
-        </TextView>
+            android:text="Don't have an account? " />
 
         <TextView
             android:id="@+id/tvSignUp"
@@ -234,6 +174,7 @@
             android:focusable="true"
             app:layout_constraintTop_toTopOf="@id/tvSignUpPrompt"
             app:layout_constraintStart_toEndOf="@id/tvSignUpPrompt"/>
+
         <ProgressBar
             android:id="@+id/loadingProgress"
             style="?android:attr/progressBarStyleLarge"

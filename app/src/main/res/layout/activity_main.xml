@@ -1,26 +1,39 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity">
+    tools:context=".MainActivity"
+    >
+
+    <!-- Background Image for content area below Toolbar (behind categories/fragment) -->
+    <ImageView
+        android:id="@+id/bg_image"
+        android:layout_width="0dp"
+        android:layout_height="950dp"
+        android:src="@drawable/news"
+        android:alpha="0.4"
+        android:scaleType="centerCrop"
+        app:layout_constraintTop_toBottomOf="@id/toolbar"
+        app:layout_constraintBottom_toTopOf="@id/btm_nav"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
 
     <androidx.appcompat.widget.Toolbar
         android:id="@+id/toolbar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:elevation="8dp"
-        android:layout_margin="4dp"
+        android:layout_margin="10dp"
         app:title="Newsly"
         app:titleTextColor="@android:color/white"
-        android:background="@drawable/rounded_bg"
+        android:background="@drawable/bg_onboarding_gradient"
         app:popupTheme="@style/ThemeOverlay.AppCompat.Light"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"/>
+        app:layout_constraintEnd_toEndOf="parent" />
 
     <fragment
         android:id="@+id/host_fragment"
@@ -38,8 +51,8 @@
         android:id="@+id/btm_nav"
         android:layout_width="match_parent"
         android:layout_height="75dp"
-        android:layout_margin="6dp"
-        android:background="@drawable/rounded_bg"
+        android:layout_margin="10dp"
+        android:background="@drawable/bg_onboarding_gradient"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent">
@@ -69,6 +82,8 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Home"
+                    android:textColor="@color/white"
+                    android:textStyle="bold"
                     android:textSize="12sp"
                     android:gravity="center" />
             </LinearLayout>
@@ -92,7 +107,9 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Favorites"
+                    android:textColor="@color/white"
                     android:textSize="12sp"
+                    android:textStyle="bold"
                     android:gravity="center" />
             </LinearLayout>
 

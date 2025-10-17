@@ -50,7 +50,7 @@ class FirstOnboardingFragment : Fragment() {
         sharedPref.edit().putBoolean("onboarding_completed", true).apply()
 
         // Navigate to NewsActivity
-        val intent = Intent(requireActivity(), MainActivity::class.java)
+        val intent = Intent(requireActivity(), Signup::class.java)
         startActivity(intent)
         requireActivity().finish()
     }
