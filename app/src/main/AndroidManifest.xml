@@ -17,7 +17,9 @@
         <activity
             android:name=".SettingsActivity"
             android:exported="false" />
+
         <!-- SplashActivity - LAUNCHER -->
+
         <activity
             android:name=".SplashActivity"
             android:exported="true">
@@ -26,16 +28,20 @@
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
-        </activity> <!-- OnboardingActivity -->
+        </activity>
+
+        <!-- OnboardingActivity -->
         <activity
             android:name=".OnboardingActivity"
             android:exported="false"
             android:noHistory="true" />
+
         <!-- Login Activity -->
 
         <activity
             android:name=".LoginActivity"
             android:exported="false" />
+
         <!-- Sign Up Activity -->
 
         <activity
@@ -47,7 +53,9 @@
 
         <activity
             android:name=".MainActivity"
-            android:exported="false" /> <!-- Article Activity -->
+            android:exported="false" />
+
+        <!-- Article Activity -->
         <activity
             android:name=".ArticleActivity"
             android:exported="false" />

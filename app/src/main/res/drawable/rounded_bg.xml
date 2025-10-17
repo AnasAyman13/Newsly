@@ -2,7 +2,7 @@
 <selector xmlns:android="http://schemas.android.com/apk/res/android">
     <item>
         <shape android:shape="rectangle">
-            <solid android:color="@color/lavunder"/>
+            <solid android:color="@drawable/bg_onboarding_gradient"/>
             <corners android:radius="20dp"/>
         </shape>
 
