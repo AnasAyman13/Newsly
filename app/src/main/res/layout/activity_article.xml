@@ -5,29 +5,36 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity">
+    tools:context=".ArticleActivity">
 
-    <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
+    <!--  الخلفية -->
+    <ImageView
+        android:id="@+id/bg_image"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:alpha="0.4"
+        android:scaleType="centerCrop"
+        android:src="@drawable/news" />
+
+    <!--  المحتوى الرئيسي -->
+    <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
         android:id="@+id/swipe_refresh"
-        android:layout_marginBottom="8dp">
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
 
         <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/news_list"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            tools:listitem="@layout/article_list_item"
-            android:id="@+id/news_list"
-            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"/>
-
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+            tools:listitem="@layout/article_list_item" />
     </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
 
-
+    <!--  مؤشر التحميل -->
     <ProgressBar
+        android:id="@+id/progress"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/progress"
-        android:layout_gravity="center"/>
-
+        android:layout_gravity="center" />
 
 </FrameLayout>

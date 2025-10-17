@@ -3,23 +3,24 @@
     android:shareInterpolator="false"
     android:fillAfter="true">
 
-
+    <!-- دوران اللوجو -->
     <rotate
         android:fromDegrees="0"
         android:toDegrees="360"
         android:pivotX="50%"
         android:pivotY="50%"
-        android:duration="1000"
-        android:fillAfter="true"/>
+        android:duration="1200"
+        android:fillAfter="true" />
 
+    <!-- تكبير بسيط بعد الدوران -->
     <scale
         android:fromXScale="1.0"
-        android:toXScale="3.0"
+        android:toXScale="2.3"
         android:fromYScale="1.0"
-        android:toYScale="3.0"
+        android:toYScale="2.3"
         android:pivotX="50%"
         android:pivotY="50%"
-        android:startOffset="800"
-        android:duration="700"
-        android:fillAfter="true"/>
+        android:startOffset="1000"
+        android:duration="600"
+        android:fillAfter="true" />
 </set>

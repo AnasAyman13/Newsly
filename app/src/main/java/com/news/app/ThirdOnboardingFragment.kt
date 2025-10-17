@@ -17,6 +17,7 @@ class ThirdOnboardingFragment : Fragment() {
     ): View? {
         val view = inflater.inflate(R.layout.fragment_onboarding_third, container, false)
         val btnGetStarted = view.findViewById<TextView>(R.id.btnGetStarted)
+
         btnGetStarted.setOnClickListener {
             completeOnboarding()
         }
@@ -28,7 +29,15 @@ class ThirdOnboardingFragment : Fragment() {
         val sharedPref = requireActivity().getSharedPreferences("NewslyPrefs", 0)
         sharedPref.edit().putBoolean("onboarding_completed", true).apply()
 
-        val intent = Intent(requireActivity(), Signup::class.java)
+        val isLoggedIn = sharedPref.getBoolean("is_logged_in", false)
+
+        val nextActivity = if (isLoggedIn) {
+            MainActivity::class.java
+        } else {
+            LoginActivity::class.java
+        }
+
+        val intent = Intent(requireActivity(), nextActivity)
         intent.flags = Intent.FLAG_ACTIVITY_CLEAR_TOP or Intent.FLAG_ACTIVITY_NEW_TASK
         startActivity(intent)
         requireActivity().finish()
