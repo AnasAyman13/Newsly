@@ -48,7 +48,7 @@ class SplashActivity : AppCompatActivity() {
             // Called when the animation ends
             override fun onAnimationEnd(animation: Animation) {
                 // After animation ends, navigate to LoginActivity
-                startActivity(Intent(this@SplashActivity, LoginActivity::class.java))
+                startActivity(Intent(this@SplashActivity, FirstOnboardingFragment::class.java))
                 // Apply fade transition between activities
                 overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out)
                 // Finish splash screen so user can’t go back to it
@@ -58,6 +58,18 @@ class SplashActivity : AppCompatActivity() {
             // Called if the animation repeats (not used here)
             override fun onAnimationRepeat(animation: Animation) {}
         })
+
+
+        val prefs = getSharedPreferences("NewslyPrefs", MODE_PRIVATE)
+        val completed = prefs.getBoolean("onboarding_completed", false)
+
+        if (completed) {
+            startActivity(Intent(this, MainActivity::class.java))
+        } else {
+            startActivity(Intent(this, OnboardingActivity::class.java))
+        }
+        finish()
+
     }
 
     /**
