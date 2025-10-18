@@ -12,11 +12,7 @@ import com.news.app.databinding.RandomNewsItemBinding
 
 class RandomNewsAdapter(val newsList:ArrayList<Article>,val a : Activity): RecyclerView.Adapter<RandomNewsAdapter.RandomNewsViewholder>(){
 
-    fun updateData(newArticles: List<Article>) {
-        newsList.clear()
-        newsList.addAll(newArticles)
-        notifyDataSetChanged()
-    }
+
 
     override fun onCreateViewHolder(
         parent: ViewGroup,

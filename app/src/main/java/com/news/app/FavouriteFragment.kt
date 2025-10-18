@@ -9,8 +9,6 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FirebaseFirestore
 import com.news.app.databinding.FragmentFavouriteBinding
-
-
 class FavouriteFragment : Fragment() {
 
     private lateinit var binding: FragmentFavouriteBinding

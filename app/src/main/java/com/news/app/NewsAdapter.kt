@@ -151,12 +151,8 @@ class NewsAdapter(val a: Activity, val articles: ArrayList<Article> , val isFavo
                         ).show()
                     }
             }
-
         }
-
     }
-
-
     override fun getItemCount() = articles.size
 
     fun updateData(newArticles: List<Article>) {
@@ -164,6 +160,4 @@ class NewsAdapter(val a: Activity, val articles: ArrayList<Article> , val isFavo
         articles.addAll(newArticles)
         notifyDataSetChanged()
     }
-
-
 }

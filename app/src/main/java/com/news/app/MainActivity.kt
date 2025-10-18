@@ -84,22 +84,14 @@ class MainActivity : AppCompatActivity() {
                 return true
             }
             R.id.action_logout -> {
-
-                //val sharedPref = getSharedPreferences("NewslyPrefs", MODE_PRIVATE)
-               // sharedPref.edit().putBoolean("onboarding_completed", false).apply()
                 Toast.makeText(this, "${auth.currentUser?.email},have log out!", Toast.LENGTH_SHORT).show()
                 auth.signOut()
                  startActivity(Intent(this, LoginActivity::class.java))
-               // startActivity(Intent(this, OnboardingActivity::class.java))
+
                 finish()
                 return true
             }
         }
         return super.onOptionsItemSelected(item)
-    }
-
-    override fun onSupportNavigateUp(): Boolean {
-        val navController = findNavController(R.id.host_fragment)
-        return navController.navigateUp() || super.onSupportNavigateUp()
     }
 }
