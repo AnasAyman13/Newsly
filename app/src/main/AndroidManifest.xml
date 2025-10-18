@@ -14,43 +14,48 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.NewsApp"
         android:usesCleartextTraffic="true">
-        <activity
-            android:name=".SettingsActivity"
-            android:exported="false" />
-        <!-- SplashActivity - LAUNCHER -->
+
+        <!-- SplashActivity - أول شاشة تفتح -->
         <activity
             android:name=".SplashActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
-        </activity> <!-- OnboardingActivity -->
+        </activity>
+
+        <!-- OnboardingActivity -->
         <activity
             android:name=".OnboardingActivity"
             android:exported="false"
             android:noHistory="true" />
-        <!-- Login Activity -->
 
+        <!-- Login Activity -->
         <activity
             android:name=".LoginActivity"
             android:exported="false" />
-        <!-- Sign Up Activity -->
 
+        <!-- Sign Up Activity -->
         <activity
             android:name=".Signup"
             android:exported="false" />
 
-
         <!-- Main Activity -->
-
         <activity
             android:name=".MainActivity"
-            android:exported="false" /> <!-- Article Activity -->
+            android:exported="false" />
+
+        <!-- Article Activity -->
         <activity
             android:name=".ArticleActivity"
             android:exported="false" />
+
+        <!-- Settings Activity -->
+        <activity
+            android:name=".SettingsActivity"
+            android:exported="false" />
+
     </application>
 
 </manifest>
