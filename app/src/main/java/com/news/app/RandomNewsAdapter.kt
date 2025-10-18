@@ -8,7 +8,6 @@ import androidx.core.net.toUri
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.bumptech.glide.load.resource.drawable.DrawableTransitionOptions
-import com.google.android.play.integrity.internal.u
 import com.news.app.databinding.RandomNewsItemBinding
 
 class RandomNewsAdapter(val newsList:ArrayList<Article>,val a : Activity): RecyclerView.Adapter<RandomNewsAdapter.RandomNewsViewholder>(){
